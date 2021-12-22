@@ -41,7 +41,7 @@
 						<workerType>MICRO</workerType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<env>${properties}</env>
+							<env>${env}</env>
 						</properties>
 					</cloudHubDeployment>
 				</configuration>
