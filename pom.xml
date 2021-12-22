@@ -32,17 +32,16 @@
 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<username>agnelr</username>
-						<password>Nous@1234</password>
+						<username>${username}</username>
+						<password>${password}</password>
 						<muleVersion>4.4.0</muleVersion>
 						<applicationName>maven-azure-deployment</applicationName>
 						<workers>1</workers>
-						<environment>Sandbox</environment>
+						<environment>${env}</environment>
 						<workerType>MICRO</workerType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<anypoint.platform.client_id>f07239453a3040ffaf6ff88a1b0ef4e8</anypoint.platform.client_id>
-							<anypoint.platform.client_secret>6C2e50eC2FA5453D8adA27E69F967c27</anypoint.platform.client_secret>
+							<env>${properties}</env>
 						</properties>
 					</cloudHubDeployment>
 				</configuration>
