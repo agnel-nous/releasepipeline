@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
-	<artifactId>package</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<artifactId>releasepipeline</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
-	<name>package</name>
+	<name>releasepipeline</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,21 +27,21 @@
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-maven-plugin</artifactId>
-				<version>${mule.maven.plugin.version}</version>
+				<version>3.5.2</version>
 				<extensions>true</extensions>
 				<configuration>
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${muleVersion}</muleVersion>
 						<username>${username}</username>
 						<password>${password}</password>
-						<muleVersion>4.4.0</muleVersion>
-						<applicationName>maven-azure-deployment</applicationName>
-						<workers>1</workers>
-						<environment>${env}</environment>
-						<workerType>MICRO</workerType>
+						<applicationName>releasepipeline-${environment}</applicationName>
+						<environment>${environment}</environment>
+						<workers>${workers}</workers>
+						<workerType>${workerType}</workerType>
 						<objectStoreV2>true</objectStoreV2>
 						<properties>
-							<env>${env}</env>
+							<environment>${environment}</environment>
 						</properties>
 					</cloudHubDeployment>
 				</configuration>
@@ -56,27 +56,22 @@
 			<version>1.5.25</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-sockets-connector</artifactId>
-			<version>1.2.2</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
 	</dependencies>
 
+    
 	<repositories>
-		<repository>
-			<id>anypoint-exchange-v2</id>
-			<name>Anypoint Exchange</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v2/maven</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>mulesoft-releases</id>
-			<name>MuleSoft Releases Repository</name>
-			<url>https://repository.mulesoft.org/releases/</url>
-			<layout>default</layout>
-		</repository>
+			<repository>
+				<id>anypoint-exchange-v2</id>
+				<name>Anypoint Exchange</name>
+				<url>https://maven.anypoint.mulesoft.com/api/v2/maven</url>
+				<layout>default</layout>
+			</repository>
+			<repository>
+				<id>mulesoft-releases</id>
+				<name>MuleSoft Releases Repository</name>
+				<url>https://repository.mulesoft.org/releases/</url>
+				<layout>default</layout>
+			</repository>
 	</repositories>
 
 	<pluginRepositories>
